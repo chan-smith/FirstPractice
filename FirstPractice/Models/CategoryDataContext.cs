@@ -54,6 +54,8 @@ namespace FirstPractice.Models
             }
         }
 
+        //讀取指定產品分類
+
         public static Category LoadCategoryByID(int CategoryID)
         {
             Category _category = new Category();
@@ -78,12 +80,14 @@ namespace FirstPractice.Models
             return _category;
         }
 
+        //修改指定產品分類
+
         public static void EditCategory(Category category)
         {
             string strCmd = "Update Categories set CategoryName=@CategoryName,Description=@Description where CategoryID=@CategoryID";
             using (SqlConnection conn = new SqlConnection(strConn))
             {
-                using(SqlCommand cmd=new SqlCommand(strCmd, conn))
+                using (SqlCommand cmd = new SqlCommand(strCmd, conn))
                 {
                     cmd.Parameters.AddWithValue("@CategoryID", category.CategoryID);
                     cmd.Parameters.AddWithValue("@CategoryName", category.CategoryName);
@@ -92,6 +96,23 @@ namespace FirstPractice.Models
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 };
+            }
+        }
+
+        //刪除產品分類
+
+        public static void DeleteCategory(int CategoryID)
+        {
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                string strCmd = "Delete Categories where CategoryID=@CategoryID";
+                using (SqlCommand cmd = new SqlCommand(strCmd, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryID", CategoryID);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
         }
 
