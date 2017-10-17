@@ -95,5 +95,20 @@ namespace FirstPractice.Models
             }
         }
 
+        public static void DeleteCategory(int CategoryID)
+        {
+            using (SqlConnection conn=new SqlConnection(strConn))
+            {
+                string strCmd = "Delete Categories where CategoryID=@CategoryID";
+                using (SqlCommand cmd=new SqlCommand(strCmd, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryID", CategoryID);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
     }
 }

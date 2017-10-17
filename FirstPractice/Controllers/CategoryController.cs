@@ -46,5 +46,12 @@ namespace FirstPractice.Controllers
             CategoryDataContext.EditCategory(_Category);
             return RedirectToAction("Index");
         }
+
+        public  ActionResult Delete(int id = 0)
+        {
+            CategoryDataContext.DeleteCategory(id);
+            return RedirectToAction("Index");
+        }
+        
     }
 }
