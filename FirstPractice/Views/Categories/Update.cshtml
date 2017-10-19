@@ -1,0 +1,19 @@
+﻿@model FirstPractice.Models.Category
+@{
+    ViewBag.Title = "修改產品分類";
+}
+
+<h2>修改產品分類</h2>
+
+<form method="post" action="~/Categories/Update">
+    <div>
+        <label>分類名稱</label>
+        <input type="hidden" name="CategoryID" value="@Model.CategoryID"/>
+        <input name="CategoryName" type="text" value="@Model.CategoryName" />
+    </div>
+    <div>
+        <label>分類描述</label>
+        <input name="Description" type="text" value="@Model.Description" />
+    </div>
+    <button type="submit">新增</button>
+</form>

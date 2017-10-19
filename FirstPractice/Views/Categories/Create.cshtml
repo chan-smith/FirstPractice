@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "新增分類資料";
+}
+
+<h2>新增分類資料</h2>
+<form method="post" action="~/Categories/Create">
+    <div>
+        <label>分類名稱</label>
+        <input name="CategoryName" type="text" />
+    </div>
+    <div>
+        <label>分類描述</label>
+        <input name="Description" type="text" />
+    </div>
+    <button type="submit">新增</button>
+</form>

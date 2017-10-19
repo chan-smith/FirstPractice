@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FirstPractice.Models.Category>
+@{
+    ViewBag.Title = "產品分類資料";
+}
+<div class="text-center">
+    <h2>產品分類資料</h2>
+</div>
+<div class="mb-2">
+    <a class="btn btn-primary" href="~/Categories/Create">新增產品分類</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>分類編號</th>
+            <th>分類名稱</th>
+            <th>分類描述</th>
+            <th>修改</th>
+            <th>刪除</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var items in Model)
+            {
+            <tr>
+                <td>@items.CategoryID</td>
+                <td>@items.CategoryName</td>
+                <td>@items.Description</td>
+                <td><a class="btn btn-warning" href="~/Categories/Update/@items.CategoryID">修改</a></td>
+                <td><a class="btn btn-danger" href="~/Categories/Delete/@items.CategoryID">刪除</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
